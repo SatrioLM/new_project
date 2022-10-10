@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_project/detail.dart';
 import 'package:new_project/repository/home_repository.dart';
+import 'package:new_project/widgets/list_item.dart';
 import 'package:new_project/widgets/simple_search_bar.dart';
 
 import 'models/model.dart';
@@ -97,24 +97,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   SimpleSearchBar(
                       filterFunction: filterByQuery,
                       textEditingController: editingController),
-                  Expanded(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: items.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(items[index].title),
-                          onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (BuildContext context) => DetailPage(
-                                  datum: items[index],
-                                ),
-                              )),
-                        );
-                      },
-                    ),
-                  ),
+                  Expanded(child: ListItem(items)
+                      // ListView.builder(
+                      //   shrinkWrap: true,
+                      //   itemCount: items.length,
+                      //   itemBuilder: (context, index) {
+                      //     return ListTile(
+                      //       title: Text(items[index].title),
+                      //       onTap: () => Navigator.push(
+                      //           context,
+                      //           MaterialPageRoute(
+                      //             builder: (BuildContext context) => DetailPage(
+                      //               datum: items[index],
+                      //             ),
+                      //           )),
+                      //     );
+                      //   },
+                      // ),
+                      ),
                 ],
               );
             } else {
