@@ -97,24 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   SimpleSearchBar(
                       filterFunction: filterByQuery,
                       textEditingController: editingController),
-                  Expanded(child: ListItem(items)
-                      // ListView.builder(
-                      //   shrinkWrap: true,
-                      //   itemCount: items.length,
-                      //   itemBuilder: (context, index) {
-                      //     return ListTile(
-                      //       title: Text(items[index].title),
-                      //       onTap: () => Navigator.push(
-                      //           context,
-                      //           MaterialPageRoute(
-                      //             builder: (BuildContext context) => DetailPage(
-                      //               datum: items[index],
-                      //             ),
-                      //           )),
-                      //     );
-                      //   },
-                      // ),
-                      ),
+                  Expanded(child: ListItem(items)),
                 ],
               );
             } else {
