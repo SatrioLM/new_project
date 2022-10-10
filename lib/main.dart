@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_project/detail.dart';
 import 'package:new_project/repository/home_repository.dart';
+import 'package:new_project/widgets/simple_search_bar.dart';
 
 import 'models/model.dart';
 
@@ -93,22 +94,9 @@ class _MyHomePageState extends State<MyHomePage> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextField(
-                      onChanged: (value) {
-                        filterByQuery(value);
-                      },
-                      controller: editingController,
-                      decoration: const InputDecoration(
-                          labelText: "Search",
-                          hintText: "Search",
-                          prefixIcon: Icon(Icons.search),
-                          border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(25.0)))),
-                    ),
-                  ),
+                  SimpleSearchBar(
+                      filterFunction: filterByQuery,
+                      textEditingController: editingController),
                   Expanded(
                     child: ListView.builder(
                       shrinkWrap: true,
